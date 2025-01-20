@@ -1,0 +1,24 @@
+{
+  "name": "projeto-api---utilizando-pacote-bcrypt",
+  "version": "1.0.0",
+  "description": "## Descrição do Projeto Este é um sistema completo de controle de estoque para mercados/lojas, desenvolvido como um projeto de grupo. O sistema inclui funcionalidades para cadastrar mercados, produtos e realizar movimentações de estoque (entradas e saídas). Ele possui uma arquitetura com frontend, backend e banco de dados, proporcionando uma interface amigável para o usuário e uma API estruturada para manipulação dos dados.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.8.0",
+    "mysql2": "^3.11.4"
+  }
+}

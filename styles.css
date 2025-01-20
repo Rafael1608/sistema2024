@@ -1,0 +1,187 @@
+/* Estilos Globais */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f3f4f6; /* Fundo cinza pastel */
+    color: #333; /* Texto principal */
+}
+
+header {
+    background-color: #6c5ce7; /* Roxo pastel */
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 15px 15px;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+/* Container principal */
+.container {
+    display: flex;
+    flex: 1;
+    padding-bottom: 20px;
+    width: 100%;
+    margin: 20px auto;
+    max-width: 1000px;
+}
+
+/* Painel esquerdo */
+.left-panel {
+    width: 75%;
+    padding: 20px;
+    background-color: #ffffff; /* Fundo branco */
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    margin-right: 20px;
+}
+
+/* Painel direito */
+.right-panel {
+    width: 25%;
+    padding: 20px;
+    background-color: #e0e7ff; /* Azul pastel claro */
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+    background-color: #6c5ce7;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    border-radius: 15px 15px 0 0;
+}
+
+/* Formulários */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+label {
+    margin-top: 10px;
+    font-weight: 500;
+    color: #666;
+}
+
+input, select {
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+    border-color: #6c5ce7;
+    box-shadow: 0 0 8px rgba(108, 92, 231, 0.2);
+}
+
+/* Botões */
+button {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #6c5ce7;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #5b4ae7;
+    transform: translateY(-2px);
+}
+
+/* Mensagens */
+.mensagem {
+    margin-top: 20px;
+    color: #28a745; /* Verde */
+    text-align: center;
+}
+
+/* Tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+}
+
+th {
+    background-color: #6c5ce7;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f3f4f6;
+}
+
+tr:hover {
+    background-color: #e0e7ff;
+}
+
+/* Links */
+a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        margin: 0 10px;
+    }
+
+    .left-panel, .right-panel {
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+}

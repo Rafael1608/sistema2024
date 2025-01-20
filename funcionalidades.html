@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestão de Mercados</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link para o CSS -->
+</head>
+<body>
+    <header>
+        <h1>Sistema de Gestão de Mercados</h1>
+        <button id="logoutButton" onclick="logout()">Sair</button> <!-- Botão de logout -->
+    </header>
+
+    <div class="container">
+        <div class="left-panel">
+            <h2>Funcionalidades</h2>
+            <!-- Botões de funcionalidades -->
+            <button id="btnProdutos" onclick="verificarLogin('gerenciarProdutos.html')">Gerenciar Produtos</button>
+            <button id="btnMercados" onclick="verificarLogin('gerenciarMercados.html')">Gerenciar Mercados</button>
+            <button id="btnMovimentacoes" onclick="verificarLogin('gerenciar_movimentacoes.html')">Gerenciar Movimentações</button>
+        </div>
+        
+        <div class="right-panel">
+            <h2>Instruções de Uso</h2>
+            <p>Use os botões à esquerda para gerenciar produtos, mercados e movimentações.</p>
+            <p>Para cada funcionalidade, uma nova página será aberta.</p>
+            <p>Consulte a documentação do sistema para mais informações.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Sistema de Gestão de Mercados. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Função para verificar login antes de permitir acesso às páginas
+         function verificarLogin(page) {
+            const authToken = localStorage.getItem('authToken');
+            if (authToken) {
+                // Se o token existe, permite o acesso à página desejada
+                window.location.href = page;
+            } else {
+                alert("Token invalido! Por gentileza refaça seu login!.");
+            }
+        }
+       
+
+        // Função de logout
+        function logout() {
+            // Remove o token de autenticação do localStorage
+            localStorage.removeItem('authToken');
+            // Redireciona para a página de login
+            window.location.href = "index.html";
+        }
+
+        // Verifica se o usuário está logado ao carregar a página
+        window.onload = function() {
+            const authToken = localStorage.getItem('authToken');
+            if (!authToken) {
+                alert("Você precisa estar logado para acessar o sistema.");
+                window.location.href = "index.html"; // Redireciona para a página de login
+            }
+        }
+    </script>
+</body>
+</html>

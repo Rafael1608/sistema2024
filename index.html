@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestão de Mercados - Login</title>
+    <link rel="stylesheet" href="login.css"> <!-- Link para o CSS -->
+</head>
+<body>
+    <div class="header-container">
+        <header>
+            <h1>Sistema de Gestão de Mercados - Login</h1>
+        </header>
+    </div>
+
+    <div class="container">
+        <div class="login-section">
+            <h2>Login</h2>
+
+            <!-- Formulário de Login -->
+            <form id="login-form">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+                
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" placeholder="Sua senha" required>
+
+                <button type="submit">Entrar</button>
+            </form>
+
+            <p>Não tem uma conta? <a href="registrar.html">Registre-se aqui</a></p>
+        </div>
+    </div>
+
+    <div class="footer-container">
+        <footer>
+            <p>&copy; 2024 Sistema de Gestão de Mercados. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Função de login
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault();  // Impede o envio do formulário para que possamos manipular via JS
+    
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+    
+            if (!email || !password) {
+                alert("Por favor, preencha todos os campos.");
+                return;
+            }
+    
+            // Envio de dados para o backend usando fetch
+            fetch('http://localhost:3000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Erro de rede: ${response.statusText}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.sucesso) {
+                    // Armazenando token de autenticação no localStorage
+                    localStorage.setItem('authToken', data.token);
+                    // Redireciona para a página de funcionalidades
+                    window.location.href = "funcionalidades.html";
+                } else {
+                    alert(data.erro || "Erro ao fazer login. Tente novamente.");
+                }
+            })
+            .catch(error => {
+                console.error("Erro ao tentar fazer login:", error);
+                alert(`Ocorreu um erro. Tente novamente mais tarde. Detalhes: ${error.message}`);
+            });
+        });
+    </script>
+</body>
+</html>
